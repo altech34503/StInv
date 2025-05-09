@@ -1,47 +1,35 @@
-<section class="container py-4"> 
-    <h2 class="mb-4 text-center">Add Investor</h2>
-  
-    <form [formGroup]="investorForm" (ngSubmit)="addInvestor()">
-      <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Investor Name</mat-label>
-        <input matInput formControlName="nameInvestor" required />
-        <mat-error *ngIf="investorForm.get('nameInvestor')?.invalid">Name is required</mat-error>
-      </mat-form-field>
-  
-      <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Overview</mat-label>
-        <textarea matInput formControlName="overviewInvestor" required></textarea>
-        <mat-error *ngIf="investorForm.get('overviewInvestor')?.invalid">Overview is required</mat-error>
-      </mat-form-field>
-  
-      <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Country</mat-label>
-        <mat-select formControlName="countryId" required>
-          <mat-option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-  
-      <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Industry</mat-label>
-        <mat-select formControlName="industryId" required>
-          <mat-option *ngFor="let industry of industries" [value]="industry.id">{{ industry.name }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-  
-      <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Investment Size</mat-label>
-        <mat-select formControlName="investmentSizeId" required>
-          <mat-option *ngFor="let size of investmentSizes" [value]="size.id">{{ size.name }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-  
-      <button
-        mat-raised-button
-        color="primary"
-        type="submit"
-        [disabled]="!investorForm.valid"
-      >
-        Submit
-      </button>
-    </form>
-  </section>
+<section class="container py-4">
+  <h2 class="mb-4 text-center">Add New Investor</h2> <!-- Add Title -->
+
+  <form [formGroup]="investorForm" (ngSubmit)="addInvestor()">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Investor Name</mat-label>
+      <input matInput formControlName="nameInvestor" required />
+      <mat-error *ngIf="investorForm.get('nameInvestor')?.invalid">Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Overview</mat-label>
+      <textarea matInput formControlName="overviewInvestor" required></textarea>
+      <mat-error *ngIf="investorForm.get('overviewInvestor')?.invalid">Overview is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Country</mat-label>
+      <mat-select formControlName="countryId" required>
+        <mat-option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Industry</mat-label>
+      <mat-select formControlName="industryId" required>
+        <mat-option *ngFor="let industry of industries" [value]="industry.id">{{ industry.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!investorForm.valid">
+      Submit
+    </button>
+  </form>
+</section>
