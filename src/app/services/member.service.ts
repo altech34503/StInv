@@ -8,11 +8,17 @@ import { Member } from '../model/member';
 })
 export class MemberService {
   baseUrl = 'http://localhost:5097/api'; // Base URL for the API
-
+  get authHeader(): string {
+    return localStorage['headerValue'];
+  }
   constructor(private http: HttpClient) {}
 
   getMembers(): Observable<Member[]> {
-    return this.http.get<Member[]>(`${this.baseUrl}/member`); // Fetch all members
+    return this.http.get<Member[]>(`${this.baseUrl}/member`, {
+      headers: {
+        Authorization: this.authHeader,
+      },
+    }); // Fetch all members
   }
 
   getMemberById(id: number): Observable<Member> {
@@ -20,13 +26,27 @@ export class MemberService {
   }
 
   createMember(member: Member): Observable<Member> {
-    return this.http.post<Member>(`${this.baseUrl}/member`, member); // Create a new member
+    return this.http.post<Member>(`${this.baseUrl}/member`, member,
+      {
+      headers: {
+        Authorization: this.authHeader,
+      },
+    }
+    ); // Create a new member
   }
 
   deleteMember(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/member/${id}`); // Delete a member by ID
+    return this.http.delete<void>(`${this.baseUrl}/member/${id}`, {
+      headers: {
+        Authorization: this.authHeader,
+      },
+    }); // Delete a member by ID
   }
   updateMember(member: Member): Observable<Member> {
-    return this.http.put<Member>(`${this.baseUrl}/member/`, member); // Update a member by ID
+    return this.http.put<Member>(`${this.baseUrl}/member/`, member, {
+      headers: {
+        Authorization: this.authHeader,
+      },
+    }); // Update a member by ID
   }
 }

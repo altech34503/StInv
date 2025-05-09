@@ -9,31 +9,53 @@ import { Investor } from '../model/investor';
 })
 export class InvestorsService {
   private baseUrl = 'http://localhost:5097/api'; // Replace with your actual API URL
-
+  get authHeader(): string {
+    return localStorage['headerValue'];
+  }
   constructor(private http: HttpClient) {}
 
   // Fetch all investors
   getInvestors(): Observable<Investor[]> {
-    return this.http.get<Investor[]>(`${this.baseUrl}/investor`);
+    return this.http.get<Investor[]>(`${this.baseUrl}/investor`, {
+      headers: {
+        Authorization: this.authHeader,
+      },
+    });
   }
 
   // Fetch a single investor by ID
   getInvestorById(id: number): Observable<Investor> {
-    return this.http.get<Investor>(`${this.baseUrl}/investor/${id}`);
+    return this.http.get<Investor>(`${this.baseUrl}/investor/${id}`, {
+      headers: {
+        Authorization: this.authHeader,
+      },
+    });
   }
 
   // Update an existing investor
   updateInvestor(investor: Investor): Observable<Investor> {
-    return this.http.put<Investor>(`${this.baseUrl}/investor`, investor);
+    return this.http.put<Investor>(`${this.baseUrl}/investor`, investor, {
+      headers: {
+        Authorization: this.authHeader,
+      },
+    });
   }
 
   // Add a new investor
   addInvestor(investor: Investor): Observable<Investor> {
-    return this.http.post<Investor>(`${this.baseUrl}/investor`, investor);
+    return this.http.post<Investor>(`${this.baseUrl}/investor`, investor, {
+      headers: {
+        Authorization: this.authHeader,
+      },
+    });
   }
 
   // Delete an investor
   deleteInvestor(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/investor/${id}`);
+    return this.http.delete<void>(`${this.baseUrl}/investor/${id}`, {
+      headers: {
+        Authorization: this.authHeader,
+      },
+    });
   }
 }

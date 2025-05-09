@@ -41,6 +41,11 @@ export class StartupsComponent implements OnInit {
   INVESTMENT_SIZE_MAP = INVESTMENT_SIZE_MAP;
 
   ngOnInit(): void {
+    if (this.startupService.authHeader == null) {
+      this.router.navigate(['login']);
+      return;
+    }
+
     this.startupService.getStartups().subscribe((startup) => {
       console.log('Received startups:', startup);
       this.startups = startup;

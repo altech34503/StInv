@@ -42,6 +42,10 @@ export class InvestorComponent implements OnInit {
   INVESTMENT_SIZE_MAP = INVESTMENT_SIZE_MAP;
 
   ngOnInit() {
+    if (this.investorService.authHeader == null) {
+      this.router.navigate(['login']);
+      return;
+    }
     this.investorService.getInvestors().subscribe((investors) => {
       console.log('Received investors:', investors);
       this.investor = investors;

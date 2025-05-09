@@ -9,6 +9,7 @@ import { InvestorComponent } from './investor/investor.component';
 import { EditInvestorComponent } from './edit-investor/edit-investor.component';
 import { AddInvestorComponent } from './add-investor/add-investor.component';
 import { NewMemberComponent } from './new-member/new-member.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -19,7 +20,8 @@ export const routes: Routes = [
   { path: 'add-startup', component: AddStartupComponent },
   { path: 'investor', component: InvestorComponent },
   { path: 'edit-investor/:id', component: EditInvestorComponent },
-  { path: "add-investor", component: AddInvestorComponent},
-  { path: "newmember", component: NewMemberComponent},
+  { path: 'add-investor', component: AddInvestorComponent },
+  { path: 'newmember', component: NewMemberComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '' },
 ];
