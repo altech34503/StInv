@@ -1,0 +1,47 @@
+<section class="container py-4">
+  <h2 class="mb-4 text-center">Investor Dashboard</h2>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="mb-4"
+    (click)="createInvestor()"
+  >
+    <mat-icon>add</mat-icon> Add Investor
+  </button>
+
+  <div class="card-grid">
+    <mat-card *ngFor="let investor of investor" class="investor-card">
+      <mat-card-header>
+        <mat-card-title>{{ investor.nameInvestor }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ investor.overviewInvestor }}</p>
+        <p><strong>Country:</strong> {{ COUNTRY_MAP[investor.countryId] }}</p>
+        <p>
+          <strong>Industry:</strong> {{ INDUSTRY_MAP[investor.industryId] }}
+        </p>
+        <p>
+          <strong>Investment Size:</strong>
+          {{ INVESTMENT_SIZE_MAP[investor.investmentSizeId] }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button
+          mat-stroked-button
+          color="accent"
+          (click)="editInvestor(investor.investorId)"
+        >
+          <mat-icon>edit</mat-icon> Edit
+        </button>
+        <button
+          mat-stroked-button
+          color="warn"
+          (click)="deleteInvestor(investor.investorId)"
+        >
+          <mat-icon>delete</mat-icon> Delete
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>

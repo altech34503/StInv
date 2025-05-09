@@ -1,0 +1,70 @@
+<form [formGroup]="startupForm" (ngSubmit)="addStartup()">
+  <mat-form-field>
+    <mat-label>Startup Name</mat-label>
+    <input matInput type="text" formControlName="nameStartup" />
+    <mat-error *ngIf="nameStartup.invalid && nameStartup.touched">
+      Startup name is required.
+    </mat-error>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field>
+    <mat-label>Overview</mat-label>
+    <textarea matInput formControlName="overviewStartup"></textarea>
+    <mat-error *ngIf="overviewStartup.invalid && overviewStartup.touched">
+      Overview is required.
+    </mat-error>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field>
+    <mat-label>Country</mat-label>
+    <mat-select formControlName="countryId">
+      <mat-option *ngFor="let country of countries" [value]="country.id">
+        {{ country.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="countryId.invalid && countryId.touched">
+      Please select a country.
+    </mat-error>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field>
+    <mat-label>Industry</mat-label>
+    <mat-select formControlName="industryId">
+      <mat-option *ngFor="let industry of industries" [value]="industry.id">
+        {{ industry.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="industryId.invalid && industryId.touched">
+      Please select an industry.
+    </mat-error>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field>
+    <mat-label>Investment Size</mat-label>
+    <mat-select formControlName="investmentSizeId">
+      <mat-option
+        *ngFor="let investment of investments"
+        [value]="investment.id"
+      >
+        {{ investment.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="investmentSizeId.invalid && investmentSizeId.touched">
+      Please select an investment size.
+    </mat-error>
+  </mat-form-field>
+  <br />
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="startupForm.invalid"
+  >
+    Save
+  </button>
+</form>

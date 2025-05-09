@@ -1,0 +1,53 @@
+/* Grid layout for cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Styling for individual startup cards */
+.startup-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* Hover effect for startup cards */
+.startup-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Add spacing and alignment for card actions */
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+/* Styling for the Add Startup button */
+button[mat-raised-button] {
+  margin-bottom: 16px;
+}
+
+/* Center and standardize the dashboard title */
+h2 {
+  text-align: center;
+  font-size: 2.5rem; /* Standardized font size */
+  font-weight: bold; /* Standardized font weight */
+  margin-top: 24px; /* Consistent spacing above the title */
+  margin-bottom: 24px; /* Consistent spacing below the title */
+  color: #333333; /* Standardized color */
+}
+
+/* Responsive padding for the container */
+.container {
+  padding: 20px;
+}
+
+/* Add spacing between cards and the Add Startup button */
+.mb-4 {
+  margin-bottom: 24px;
+}

@@ -1,0 +1,93 @@
+<form #startupForm="ngForm" (ngSubmit)="updateStartup(startupForm)">
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Startup Name</mat-label>
+    <input matInput [(ngModel)]="startup.nameStartup" name="name" required />
+    <mat-error
+      *ngIf="
+        startupForm.controls['name']?.invalid &&
+        startupForm.controls['name']?.touched
+      "
+    >
+      Please enter a name for the startup.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Startup Overview</mat-label>
+    <textarea
+      matInput
+      [(ngModel)]="startup.overviewStartup"
+      name="overview"
+      required
+    ></textarea>
+    <mat-error
+      *ngIf="
+        startupForm.controls['overview']?.invalid &&
+        startupForm.controls['overview']?.touched
+      "
+    >
+      Please provide an overview for the startup.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Country</mat-label>
+    <mat-select [(ngModel)]="startup.countryId" name="countryId" required>
+      <mat-option *ngFor="let country of countries" [value]="country.id">
+        {{ country.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error
+      *ngIf="
+        startupForm.controls['countryId']?.invalid &&
+        startupForm.controls['countryId']?.touched
+      "
+    >
+      Please select a country.
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Industry -->
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Industry</mat-label>
+    <mat-select [(ngModel)]="startup.industryId" name="industryId" required>
+      <mat-option *ngFor="let industry of industries" [value]="industry.id">
+        {{ industry.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error
+      *ngIf="
+        startupForm.controls['countryId']?.invalid &&
+        startupForm.controls['countryId']?.touched
+      "
+    >
+      Please select an industry.
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Investment Size -->
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Investment Size</mat-label>
+    <mat-select
+      [(ngModel)]="startup.investmentSizeId"
+      name="investmentSizeId"
+      required
+    >
+      <mat-option *ngFor="let size of investments" [value]="size.id">
+        {{ size.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error
+      *ngIf="
+        startupForm.controls['investmentSizeId']?.invalid &&
+        startupForm.controls['investmentSizeId']?.touched
+      "
+    >
+      Please select an investment size.
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" [disabled]="startupForm.invalid">
+    Update Startup
+  </button>
+</form>

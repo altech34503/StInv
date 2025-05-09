@@ -1,0 +1,16 @@
+/* filepath: c:\Users\ale_c\Desktop\frontend 805\StInv\src\styles.css */
+mat-menu {
+  background-color: #ffffff; /* Optional: Change background color */
+  border-radius: 4px; /* Optional: Add rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+}
+
+mat-menu button[mat-menu-item] {
+  padding: 10px 20px; /* Add padding to menu items */
+  font-size: 14px; /* Adjust font size */
+  text-align: left; /* Align text to the left */
+}
+
+mat-menu button[mat-menu-item]:hover {
+  background-color: #f0f0f0; /* Add hover effect */
+}
