@@ -8,8 +8,14 @@ import { Member } from '../model/member';
 })
 export class MemberService {
   baseUrl = 'http://localhost:5097/api'; // Base URL for the API
-  get authHeader(): string {
-    return localStorage['headerValue'];
+  public username = 'john.doe';
+  public password = 'VerySecret!';
+
+  // Method to encode credentials as Base64 and return the Authorization header
+  public get authHeader(): string {
+    const credentials = `${this.username}:${this.password}`;
+    const encodedCredentials = btoa(credentials); // Base64 encode
+    return `Basic ${encodedCredentials}`;
   }
   constructor(private http: HttpClient) {}
 
@@ -26,13 +32,11 @@ export class MemberService {
   }
 
   createMember(member: Member): Observable<Member> {
-    return this.http.post<Member>(`${this.baseUrl}/member`, member,
-      {
+    return this.http.post<Member>(`${this.baseUrl}/member`, member, {
       headers: {
         Authorization: this.authHeader,
       },
-    }
-    ); // Create a new member
+    }); // Create a new member
   }
 
   deleteMember(id: number): Observable<void> {

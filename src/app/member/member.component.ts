@@ -30,6 +30,11 @@ export class MemberComponent {
 
   member: Member[] = [];
   ngOnInit() {
+    if (this.memberService.authHeader == null) {
+      this.router.navigate(['login']);
+      return;
+    }
+
     this.memberService.getMembers().subscribe({
       next: (data) => {
         console.log('Fetched members:', data);
