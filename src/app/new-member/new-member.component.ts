@@ -38,20 +38,30 @@ export class NewMemberComponent {
     memberPhone: '',
   };
 
+  showSuccessMessage = false;
+
   constructor(private memberService: MemberService, private router: Router) {}
 
   createMember() {
     // All fields are already validated in the template
-    console.log('Form Submitted:', this.member);
+    console.log('Memeber created:', this.member);
 
     this.memberService.createMember(this.member).subscribe(
       (response) => {
         console.log('Member added successfully:', response);
-        this.router.navigate(['/member']);
       },
       (error) => {
         console.error('Error adding member:', error);
       }
     );
+
+    this.showSuccessMessage = true;
+    this.member = {
+      memberId: 0,
+      memberType: 'Investor',
+      memberEmail: '',
+      memberAddress: '',
+      memberPhone: '',
+    };
   }
 }

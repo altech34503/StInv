@@ -1,0 +1,41 @@
+.table-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #3f51b5; /* Deep Purple (Material theme) */
+  margin-bottom: 1.5rem;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.styled-table thead {
+  background-color: #f64f87; /* Light Purple */
+  color: #f6f7fd; /* Deep Purple */
+  font-weight: 600;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 16px;
+  text-align: left;
+}
+
+.styled-table tbody tr:nth-child(even) {
+  background-color: #fce4ec; /* Soft pink */
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f3e5f5; /* Purple-pink hover */
+  cursor: pointer;
+}
+
+.styled-table td {
+  border-bottom: 1px solid #ddd;
+}

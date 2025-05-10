@@ -8,7 +8,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common'; // Import CommonModule for ngIf and ngFor
-
 @Component({
   selector: 'app-member',
   standalone: true,

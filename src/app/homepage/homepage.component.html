@@ -1,64 +1,215 @@
 <div class="homepage-container">
   <!-- Header Section -->
-  <section class="hero">
-    <h1 class="headline">
-      <mat-icon class="icon-large">rocket_launch</mat-icon>
-      VentureLink Community
+  <section
+    class="hero"
+    style="background-color: #f5f5f5; padding: 40px 20px; text-align: center"
+  >
+    <h1
+      class="headline"
+      style="font-size: 3rem; color: #3f51b5; margin-bottom: 40px"
+    >
+      <mat-icon
+        class="icon-large"
+        style="font-size: 25px; vertical-align: middle"
+        >rocket_launch</mat-icon
+      >
+      Creative Investment Africa
     </h1>
-    <p class="subtitle">
-      A dynamic community where startups and investors connect, collaborate, and
-      grow together.
+    <p
+      class="subtitle"
+      style="font-size: 1.5rem; color: #555; margin-bottom: 20px"
+    >
+      A matchmaking platform for startups and investors in Africa's creative
+      industries
     </p>
-    <div class="hero-buttons">
-      <button mat-raised-button color="primary" routerLink="/startup">
-        <mat-icon>explore</mat-icon>
-        Browse Startups
-      </button>
-      <button mat-raised-button color="accent" routerLink="/investor">
-        <mat-icon>group</mat-icon>
-        View Our Investors
+  </section>
+
+  <!-- Divider -->
+  <hr
+    style="border: none; height: 2px; background-color: #ddd; margin: 40px 0"
+  />
+
+  <!-- How It Works Section -->
+  <section
+    class="container py-4"
+    style="
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    "
+  >
+    <h2
+      class="text-center mb-4"
+      style="font-size: 2.5rem; color: #3f51b5; margin-bottom: 20px"
+    >
+      How It Works
+    </h2>
+  </section>
+
+  <!-- Step 1: Sign Up -->
+  <section
+    class="step-section"
+    style="
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    "
+  >
+    <div style="display: flex; align-items: center; gap: 15px">
+      <mat-icon style="font-size: 25px; color: #3f51b5">person_add</mat-icon>
+      <div>
+        <h3 style="font-size: 1.5rem; color: #333; margin: 0">Sign Up</h3>
+        <p
+          style="
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin: 5px 0;
+          "
+        >
+          Users can sign up via the button. Once registered, they receive a
+          username and password via email.
+        </p>
+      </div>
+      <button
+        mat-stroked-button
+        color="primary"
+        routerLink="/newmember"
+        style="
+          width: 200px;
+          height: 50px;
+          border-radius: 8px;
+          margin-left: auto;
+        "
+      >
+        <mat-icon>person_add</mat-icon>
+        Sign Up
       </button>
     </div>
   </section>
 
-  <!-- Feature Highlights -->
-  <section class="features">
-    <div class="feature-card">
-      <mat-icon class="feature-icon">lightbulb</mat-icon>
-      <h3>Innovative Startups</h3>
-      <p>
-        Join a community of innovative startups looking for growth,
-        partnerships, and funding.
-      </p>
-    </div>
-    <div class="feature-card">
-      <mat-icon class="feature-icon">account_balance</mat-icon>
-      <h3>Investor Opportunities</h3>
-      <p>
-        Find the right startups to invest in, powered by deep insights and
-        data-driven recommendations.
-      </p>
-    </div>
-    <div class="feature-card">
-      <mat-icon class="feature-icon">connect_without_contact</mat-icon>
-      <h3>Global Collaboration</h3>
-      <p>
-        Collaborate with a diverse network of professionals from around the
-        world to drive success.
-      </p>
+  <!-- Step 2: Log In -->
+  <section
+    class="step-section"
+    style="
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    "
+  >
+    <div style="display: flex; align-items: center; gap: 15px">
+      <mat-icon style="font-size: 25px; color: #3f51b5">login</mat-icon>
+      <div>
+        <h3 style="font-size: 1.5rem; color: #333; margin: 0">Log In</h3>
+        <p
+          style="
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin: 5px 0;
+          "
+        >
+          Use the provided username and password to authenticate via the
+          Investors or Startups page:
+        </p>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-left: auto;
+        "
+      >
+        <button
+          mat-raised-button
+          color="primary"
+          routerLink="/startup"
+          style="width: 200px; height: 50px; border-radius: 8px"
+        >
+          <mat-icon>explore</mat-icon>
+          Startups
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          routerLink="/investor"
+          style="width: 200px; height: 50px; border-radius: 8px"
+        >
+          <mat-icon>group</mat-icon>
+          Investors
+        </button>
+      </div>
     </div>
   </section>
 
-  <!-- Call to Action -->
-  <section class="cta">
-    <h2>Become Part of Our Community</h2>
-    <p>
-      Join the VentureLink community today and start building valuable
-      connections for your future.
-    </p>
-    <button mat-stroked-button color="primary" routerLink="/newmember">
-      <mat-icon>person_add</mat-icon>
-      Get Started
-    </button>
+  <!-- Step 3: Explore Opportunities -->
+  <section
+    class="step-section"
+    style="
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    "
+  >
+    <div style="display: flex; align-items: center; gap: 15px">
+      <mat-icon style="font-size: 25px; color: #3f51b5">explore</mat-icon>
+      <div>
+        <h3 style="font-size: 1.5rem; color: #333; margin: 0">
+          Explore Opportunities
+        </h3>
+        <p
+          style="
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin: 5px 0;
+          "
+        >
+          Investors can find startups to invest in, while startups can find
+          investors to fund their projects.
+        </p>
+      </div>
+    </div>
   </section>
+
+  <!-- Divider -->
+  <hr
+    style="border: none; height: 2px; background-color: #ddd; margin: 40px 0"
+  />
+
+  <!-- Footer Section -->
+  <footer
+    style="
+      background-color: #f5f5f5;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #ddd;
+    "
+  >
+    <p style="margin: 5px 0">
+      &copy; 2025 Creative Investment Africa. All rights reserved.
+    </p>
+    <p style="margin: 5px 0">
+      Creative Investment Africa is a registered entity under Example Inc.
+    </p>
+    <p style="margin: 5px 0">
+      <a href="/terms" style="color: #3f51b5; text-decoration: none"
+        >Terms of Service</a
+      >
+      |
+      <a href="/privacy" style="color: #3f51b5; text-decoration: none"
+        >Privacy Policy</a
+      >
+    </p>
+  </footer>
 </div>

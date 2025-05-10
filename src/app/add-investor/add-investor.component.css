@@ -9,3 +9,7 @@ form {
 button {
   align-self: flex-end;
 }
+
+.text-center {
+  text-align: center;
+}
