@@ -1,26 +1,27 @@
-<h2 style="font-size: 2.5rem; color: #000000">Registered Members</h2>
-
-<table
-  class="member-table"
-  border="1"
-  cellpadding="10"
-  cellspacing="0"
-  style="width: 100%; border-collapse: collapse"
->
-  <thead style="background-color: #f2f2f2">
-    <tr>
-      <th>Email</th>
-      <th>Member type</th>
-      <th>HQ location</th>
-      <th>Phone</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let member of member; trackBy: trackByMemberId">
-      <td>{{ member.memberEmail }}</td>
-      <td>{{ member.memberType }}</td>
-      <td>{{ member.memberAddress }}</td>
-      <td>{{ member.memberPhone }}</td>
-    </tr>
-  </tbody>
-</table>
+<section class="container py-4">
+  <h2 class="page-header">Members</h2>
+  <table
+    class="member-table"
+    border="1"
+    cellpadding="10"
+    cellspacing="0"
+    style="width: 100%; border-collapse: collapse"
+  >
+    <thead style="background-color: #f2f2f2">
+      <tr>
+        <th>Email</th>
+        <th>Member type</th>
+        <th>HQ location</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let member of member; trackBy: trackByMemberId">
+        <td>{{ member.memberEmail }}</td>
+        <td>{{ member.memberType }}</td>
+        <td>{{ member.memberAddress }}</td>
+        <td>{{ member.memberPhone }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
