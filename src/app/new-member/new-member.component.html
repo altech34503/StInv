@@ -1,123 +1,98 @@
-<!-- Success Message -->
-<div
-  *ngIf="showSuccessMessage"
-  class="success-message"
-  style="text-align: center; margin-bottom: 20px; color: green"
->
-  <p>
-    Thank you for signing up. Please see your email inbox for your username and
-    password.
-  </p>
-  <p><strong>For simulation purposes:</strong></p>
-  <p>Username: <strong>john.doe</strong></p>
-  <p>Password: <strong>VerySecret!</strong></p>
-</div>
-
-<h2 style="text-align: center; margin-top: 0cqb; color: #3f51b5">
-  Fill the form below to sign up
-</h2>
-<!-- Sign Up Form -->
-<form
-  (ngSubmit)="createMember()"
-  #memberForm="ngForm"
-  *ngIf="!showSuccessMessage"
->
-  <form (ngSubmit)="createMember()" #memberForm="ngForm">
-    <!-- Member Type -->
-    <mat-form-field appearance="fill">
-      <mat-label>Member Type</mat-label>
-      <mat-select
-        [(ngModel)]="member.memberType"
-        name="memberType"
-        required
-        #memberType="ngModel"
-      >
-        <mat-option value="Investor">Investor</mat-option>
-        <mat-option value="Startup">Startup</mat-option>
-      </mat-select>
-      <mat-error *ngIf="memberType.touched && memberType.invalid">
-        Member type is required.
-      </mat-error>
-    </mat-form-field>
-
-    <!-- Email -->
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input
-        matInput
-        type="email"
-        name="memberEmail"
-        placeholder="example@domain.com"
-        [(ngModel)]="member.memberEmail"
-        required
-        pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-        #memberEmail="ngModel"
-      />
-      <mat-error *ngIf="memberEmail.touched && memberEmail.invalid">
-        <ng-container *ngIf="memberEmail.errors?.['required']">
-          Email is required.
-        </ng-container>
-        <ng-container *ngIf="memberEmail.errors?.['pattern']">
-          Please enter a valid email address.
-        </ng-container>
-      </mat-error>
-    </mat-form-field>
-
-    <!-- Address (expects city, country) -->
-    <mat-form-field appearance="fill">
-      <mat-label>Address (City, Country)</mat-label>
-      <input
-        matInput
-        type="text"
-        name="memberAddress"
-        placeholder="Berlin, Germany"
-        [(ngModel)]="member.memberAddress"
-        required
-        pattern="^.+,\s*[A-Za-z\s]+$"
-        #memberAddress="ngModel"
-      />
-      <mat-error *ngIf="memberAddress.touched && memberAddress.invalid">
-        <ng-container *ngIf="memberAddress.errors?.['required']">
-          Address is required.
-        </ng-container>
-        <ng-container *ngIf="memberAddress.errors?.['pattern']">
-          Format must be "City, Country" (e.g., Paris, France).
-        </ng-container>
-      </mat-error>
-    </mat-form-field>
-
-    <!-- Phone -->
-    <mat-form-field appearance="fill">
-      <mat-label>Phone Number</mat-label>
-      <input
-        matInput
-        type="tel"
-        name="memberPhone"
-        placeholder="+1234567890"
-        [(ngModel)]="member.memberPhone"
-        required
-        pattern="^\+\d{7,15}$"
-        #memberPhone="ngModel"
-      />
-      <mat-error *ngIf="memberPhone.touched && memberPhone.invalid">
-        <ng-container *ngIf="memberPhone.errors?.['required']">
-          Phone number is required.
-        </ng-container>
-        <ng-container *ngIf="memberPhone.errors?.['pattern']">
-          Format must be international, e.g., +1234567890.
-        </ng-container>
-      </mat-error>
-    </mat-form-field>
-
-    <!-- Submit Button -->
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="memberForm.invalid"
-      matTooltip="Click to save member"
+<form (ngSubmit)="createMember()" #memberForm="ngForm">
+  <!-- Member Type -->
+  <mat-form-field appearance="fill">
+    <mat-label>Member Type</mat-label>
+    <mat-select
+      [(ngModel)]="member.memberType"
+      name="memberType"
+      required
+      #memberType="ngModel"
     >
-      Save
-    </button>
-  </form>
+      <mat-option value="Investor">Investor</mat-option>
+      <mat-option value="Startup">Startup</mat-option>
+    </mat-select>
+    <mat-error *ngIf="memberType.touched && memberType.invalid">
+      Member type is required.
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Email -->
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      type="email"
+      name="memberEmail"
+      placeholder="example@domain.com"
+      [(ngModel)]="member.memberEmail"
+      required
+      pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+      #memberEmail="ngModel"
+    />
+    <mat-error *ngIf="memberEmail.touched && memberEmail.invalid">
+      <ng-container *ngIf="memberEmail.errors?.['required']">
+        Email is required.
+      </ng-container>
+      <ng-container *ngIf="memberEmail.errors?.['pattern']">
+        Please enter a valid email address.
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Address (expects city, country) -->
+  <mat-form-field appearance="fill">
+    <mat-label>Address (City, Country)</mat-label>
+    <input
+      matInput
+      type="text"
+      name="memberAddress"
+      placeholder="Berlin, Germany"
+      [(ngModel)]="member.memberAddress"
+      required
+      pattern="^.+,\s*[A-Za-z\s]+$"
+      #memberAddress="ngModel"
+    />
+    <mat-error *ngIf="memberAddress.touched && memberAddress.invalid">
+      <ng-container *ngIf="memberAddress.errors?.['required']">
+        Address is required.
+      </ng-container>
+      <ng-container *ngIf="memberAddress.errors?.['pattern']">
+        Format must be "City, Country" (e.g., Paris, France).
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Phone -->
+  <mat-form-field appearance="fill">
+    <mat-label>Phone Number</mat-label>
+    <input
+      matInput
+      type="tel"
+      name="memberPhone"
+      placeholder="+1234567890"
+      [(ngModel)]="member.memberPhone"
+      required
+      pattern="^\+\d{7,15}$"
+      #memberPhone="ngModel"
+    />
+    <mat-error *ngIf="memberPhone.touched && memberPhone.invalid">
+      <ng-container *ngIf="memberPhone.errors?.['required']">
+        Phone number is required.
+      </ng-container>
+      <ng-container *ngIf="memberPhone.errors?.['pattern']">
+        Format must be international, e.g., +1234567890.
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Submit Button -->
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="memberForm.invalid"
+    matTooltip="Click to save member"
+  >
+    Save
+  </button>
 </form>
